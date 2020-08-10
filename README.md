@@ -1,6 +1,6 @@
 # Room_ViewModel_LiveData
 
-Kotlin_Room_example_with_ViewModle_LiveData
+Kotlin Room Example with ViewModle&LiveData
 
 source : https://www.youtube.com/watch?v=97xmJRZRGm4&list=PLxTmPHxRH3VXHOBnaGQcbSGslbAjr8obc&index=2
 
