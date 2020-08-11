@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.room_viewmodel_livedata.MainViewModel" />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#272B34"
+        tools:context=".MainActivity">
 
         <EditText
             android:id="@+id/name_edittext"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
+            android:text="@={viewModel.newRooms}"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@id/add_button"
+            android:background="@drawable/rectangle_7"
             android:gravity="left|center"
-            android:hint="이름"
+            android:hint="Name"
+            android:textColor="#626974"
+            android:textColorHint="#626974"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -26,24 +38,43 @@
             android:id="@+id/add_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:onClick="@{() -> viewModel.insert(viewModel.newRooms)}"
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:text="추가"
+            android:background="@drawable/rectangle_bt"
+            android:text="Add"
+            android:textColor="#10171F"
             android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/name_edittext"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rectangle_1" />
 
         <TextView
             android:id="@+id/result_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/name_edittext"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
             android:gravity="left|top"
-            android:hint="Room data"
+            android:text="@{viewModel.rooms.toString()}"
+            android:textColor="#626974"
+            android:textColorHint="#626974"
             android:textSize="20dp"
             android:textStyle="bold" />
 
-
     </RelativeLayout>
 
-</ScrollView>
+</layout>
